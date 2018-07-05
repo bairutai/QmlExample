@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>MainForm.ui.qml</file>
+        <file>ListNavigation.qml</file>
+        <file>Picture/test1.png</file>
+        <file>Picture/test2.png</file>
+        <file>Picture/test3.png</file>
+        <file>Picture/test4.png</file>
+        <file>main.cpp</file>
+    </qresource>
+</RCC>

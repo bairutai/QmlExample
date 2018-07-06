@@ -1,2 +1,2 @@
 # QmlExample
-![](https://github.com/bairutai/QmlExample/QmlListNavigation/listNavigation.gif)
+![](https://github.com/bairutai/QmlExample/blob/master/QmlListNavigation/listNavigation.gif)

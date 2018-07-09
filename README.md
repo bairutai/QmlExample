@@ -1,7 +1,7 @@
 # QmlExample
 ## Qml加载皮肤框架，包括本地/扩展皮肤两种方式
 
-![demo](https://github.com/bairutai/QmlExample/blob/master/QmlChangeSkin/changeSkin.gif）
+![demo](https://github.com/bairutai/QmlExample/blob/master/QmlChangeSkin/changeSkin.gif)
 
 ## ListView做的二级导航列表
 

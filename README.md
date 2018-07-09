@@ -9,6 +9,6 @@
 
 ## TableView全选
 
-![demo](https://github.com/bairutai/QmlExample/blob/master/QmlTableViewSelectAll/selectall.gif)
+![demo](https://github.com/bairutai/QmlExample/blob/master/QmlTableViewSelectAll/selectAll.gif)
 
 

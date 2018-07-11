@@ -31,31 +31,31 @@ Item {
                 name: "shrink"
             }
 
-            PropertyAnimation {
-                id:animation1
-                target: column
-                property: "height"
-                easing.type: Easing.Linear
-                to:50
-                duration: listModel.get(index).subModel.count * 100
-                onStopped: {
-                    subList.visible = false
-                    column.state = "shink"
-                }
-            }
+//            PropertyAnimation {
+//                id:animation1
+//                target: column
+//                property: "height"
+//                easing.type: Easing.Linear
+//                to:50
+//                duration: listModel.get(index).subModel.count * 100
+//                onStopped: {
+//                    subList.visible = false
+//                    column.state = "shink"
+//                }
+//            }
 
-            PropertyAnimation {
-                id:animation2
-                target: column
-                property: "height"
-                easing.type: Easing.Linear
-                to:50 +listModel.get(index).subModel.count * 40
-                duration: listModel.get(index).subModel.count * 100
-                onStopped: {
-                    subList.visible = true
-                    column.state = "expand"
-                }
-            }
+//            PropertyAnimation {
+//                id:animation2
+//                target: column
+//                property: "height"
+//                easing.type: Easing.Linear
+//                to:50 +listModel.get(index).subModel.count * 40
+//                duration: listModel.get(index).subModel.count * 100
+//                onStopped: {
+//                    subList.visible = true
+//                    column.state = "expand"
+//                }
+//            }
 
             Rectangle {
                 id:parentItem
@@ -95,20 +95,31 @@ Item {
                     anchors.fill: parent
                     onClicked: {
                         if(column.state == "expand")
-                            animation1.start()
+                        {
+                            subList.model = null
+                            column.state = "shrink"
+                        }
+//                            animation1.start()
                         else
-                            animation2.start()
+                        {
+                            subList.model = listModel.get(index).subModel
+                            column.state = "expand"
+                        }
+//                            animation2.start()
                     }
                 }
             }
 
             ListView {
                 id:subList
-                visible:false
                 width: 280
-                height: listModel.get(index).subModel.count * 40
-                model:listModel.get(index).subModel
+                height: model == null?0:model.count * 40
 
+                Behavior on height {
+                    PropertyAnimation {
+                        duration: 100
+                    }
+                }
                 delegate: Rectangle{
                     width: 280
                     height: 40

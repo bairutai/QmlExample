@@ -47,23 +47,9 @@ Window {
                         }
                         onCheckedChanged: {
                             if(checked)
-                            {
                                 tableview.selection.selectAll()
-                                for(var i = 0;i<learnModel.count;i++)
-                                {
-                                    learnModel.setProperty(i,"selected",true)
-                                }
-
-                            }
                             else
-                            {
                                 tableview.selection.clear()
-                                for(var j = 0;j<learnModel.count;j++)
-                                {
-                                    learnModel.setProperty(j,"selected",false)
-                                }
-                            }
-
                         }
                     }
                 }
@@ -83,6 +69,8 @@ Window {
                 text: styleData.value
             }
         }
+
+
         model: ListModel {
             id:learnModel
 
@@ -109,27 +97,23 @@ Window {
                 implicitHeight: 40
                 implicitWidth: 100
                 RadioButton {
+                    id:selectCheckBox
                     anchors.horizontalCenter: parent.horizontalCenter
                     width: 40
                     height: 40
                     text: qsTr("")
-                    checked: styleData.value
-                    Binding on checked {
-                        when:learnModel.dataChanged
-                        value:styleData.value
+                    checked: tableview.selection.contains(styleData.row)
+                    Connections {
+                        target: tableview.selection
+                        onSelectionChanged:{
+                            selectCheckBox.checked = tableview.selection.contains(styleData.row)
+                        }
                     }
-
                     onCheckedChanged: {
                         if(checked)
-                        {
                             tableview.selection.select(styleData.row)
-                            learnModel.setProperty(styleData.row,"selected",true)
-                        }
                         else
-                        {
                             tableview.selection.deselect(styleData.row)
-                            learnModel.setProperty(styleData.row,"selected",false)
-                        }
                     }
                 }
             }

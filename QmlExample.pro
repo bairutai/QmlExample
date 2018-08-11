@@ -3,4 +3,5 @@ TEMPLATE = subdirs
 SUBDIRS += \
     QmlListNavigation\
     QmlChangeSkin \
-    QmlTableViewSelectAll
+    QmlTableViewSelectAll \
+    QmlAgreeAddAnimation

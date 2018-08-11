@@ -43,13 +43,13 @@ Window {
                         anchors.centerIn: parent
                         onMyPressedChanged: {
                             if(myPressed)
+                            {
+                                if(!checked)
+                                    tableview.selection.selectAll()
+                                else
+                                    tableview.selection.clear()
                                 checked = !checked
-                        }
-                        onCheckedChanged: {
-                            if(checked)
-                                tableview.selection.selectAll()
-                            else
-                                tableview.selection.clear()
+                            }
                         }
                     }
                 }

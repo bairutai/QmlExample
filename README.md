@@ -11,4 +11,5 @@
 
 ![demo](https://github.com/bairutai/QmlExample/blob/master/QmlTableViewSelectAll/selectAll.gif)
 
-
+## 点赞+1动画
+！[demo](https://github.com/bairutai/QmlExample/blob/master/QmlAgreeAddAnimation/agreeAdd.gif)

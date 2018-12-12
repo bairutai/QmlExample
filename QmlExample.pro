@@ -4,4 +4,5 @@ SUBDIRS += \
     QmlListNavigation\
     QmlChangeSkin \
     QmlTableViewSelectAll \
-    QmlAgreeAddAnimation
+    QmlAgreeAddAnimation \
+    QmlDynamicLoadClass

@@ -1,4 +1,4 @@
-import QtQuick 2.6
+﻿import QtQuick 2.6
 import QtQuick.Window 2.2
 import QtQuick.Controls 1.4
 Window {
@@ -75,14 +75,12 @@ Window {
             id:learnModel
 
             ListElement {
-                selected:false
                 StartDate:"2001-01-01"
                 EndDate:"2001-01-01"
                 Name:qsTr("张三")
                 IDNumber:"123456789"
             }
             ListElement {
-                selected:true
                 StartDate:"2001-01-01"
                 EndDate:"2001-01-01"
                 Name:qsTr("李四")
@@ -90,7 +88,6 @@ Window {
             }
         }
         TableViewColumn {
-            role: "selected"
             title: qsTr("全选")
             width: 100
             delegate: Item {
@@ -102,19 +99,8 @@ Window {
                     width: 40
                     height: 40
                     text: qsTr("")
-                    checked: tableview.selection.contains(styleData.row)
-                    Connections {
-                        target: tableview.selection
-                        onSelectionChanged:{
-                            selectCheckBox.checked = tableview.selection.contains(styleData.row)
-                        }
-                    }
-                    onCheckedChanged: {
-                        if(checked)
-                            tableview.selection.select(styleData.row)
-                        else
-                            tableview.selection.deselect(styleData.row)
-                    }
+                    checked: styleData.selected
+                    enabled: false
                 }
             }
         }
